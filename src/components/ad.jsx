@@ -1,5 +1,6 @@
 import React from "react";
 import DashboardStatusCards from "./status";
+import DashboardPanel from "./je";
 // Link this to the CSS provided below
 
 const cardData = [
@@ -221,7 +222,8 @@ const AdminDashboard = () => {
               </p>
             </div>
           </div>
-             {/* <DashboardStatusCards/> */}
+             <DashboardStatusCards/>
+             <DashboardPanel/>
         </div>
         
       </div>
