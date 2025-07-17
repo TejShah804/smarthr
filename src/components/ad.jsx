@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardStatusCards from "./status";
 import DashboardPanel from "./je";
+import SalesAndInvoices from "./invoice";
+import ProjectsAndTasks from "./deals";
+import DashboardWidgets from "./schedules";
 // Link this to the CSS provided below
 
 const cardData = [
@@ -81,22 +85,27 @@ const departments = [
 ];
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="admin-wrapper">
         {/* Sidebar */}
         <aside className="sidebar">
           <div className="logo">
-            {/* Smart<span>HR</span> */}
+            
             <img src="/img/logo.svg" alt="" />
-          </div>cd
+            
+          </div> 
           <div className="menu">
             <button className="menu-item active">
               Dashboard <span className="hot">Hot</span>
             </button>
             <button className="submenu">Admin Dashboard</button>
             <button className="submenu">Employee Dashboard</button>
-            <button className="submenu">Deals Dashboard</button>
+            {/* <button className="submenu">Deals Dashboard</button> */}
+             <button className="submenu" onClick={() => navigate("/deals")}>
+            Deals Dashboard
+          </button>
             <button className="submenu">Leads Dashboard</button>
           </div>
         </aside>
@@ -107,7 +116,12 @@ const AdminDashboard = () => {
             <div style={{justifyContent:'space-between'}}>
             <button className="">←</button>
             <input type="text" placeholder="Search in HRMS" className="search" />
+             <i class="bi bi-grid"></i>
+            <i class="bi bi-gear"></i>
+
+            
             </div>
+           
             {/* <div className="topbar-icons">
               <i class="bi bi-chat-fill"></i>
               <span className="icon"><i class="bi bi-bell-fill"></i></span>
@@ -224,6 +238,9 @@ const AdminDashboard = () => {
           </div>
              <DashboardStatusCards/>
              <DashboardPanel/>
+             <SalesAndInvoices/>
+             <ProjectsAndTasks/>
+             <DashboardWidgets/>
         </div>
         
       </div>

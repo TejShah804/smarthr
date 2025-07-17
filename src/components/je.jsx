@@ -27,74 +27,98 @@ const todos = [
 
 const DashboardPanel = () => {
   return (
-    <div className="dashboard-panel">
-      <div className="card applicants">
-        <div className="card-header">
-          <h5>Jobs Applicants</h5>
-          <button className="view-all">View All</button>
-        </div>
-        <div className="tab-toggle">
-          <button>Openings</button>
-          <button className="active">Applicants</button>
-        </div>
-        <ul className="applicant-list">
-          {applicants.map((a, i) => (
-            <li key={i}>
-              <img src={`https://i.pravatar.cc/40?img=${i + 1}`} alt="avatar" />
-              <div>
-                <h6>{a.name}</h6>
-                <p>Exp : {a.exp} • {a.location}</p>
-              </div>
-              <span className={`badge ${a.badge}`}>{a.role}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="card employees">
-        <div className="card-header">
-          <h5>Employees</h5>
-          <button className="view-all">View All</button>
-        </div>
-        <div className="employee-table">
-          <div className="table-head">
-            <span>Name</span>
-            <span>Department</span>
+    <>
+      <div className="dashboard-panel">
+        <div className="card applicants">
+          <div className="card-header" style={{marginBottom:"10px"}}>
+            <h5>Jobs Applicants</h5>
+            <button
+              className="view-all"
+              style={{
+                borderColor: "#E5E7EB",
+                position: "relative",
+                background: "#0b0b0b17",
+                // padding: "1rem 1.25rem 1rem",
+                color: "black"
+              }}
+            >
+              View All
+            </button>
           </div>
-          {employees.map((e, i) => (
-            <div className="table-row" key={i}>
-              <div className="emp-name">
-                <img src={`https://i.pravatar.cc/40?img=${i + 2}`} alt="avatar" />
+          <div className="tab-toggle">
+            <button>Openings</button>
+            <button className="active">Applicants</button>
+          </div>
+          <ul className="applicant-list">
+            {applicants.map((a, i) => (
+              <li key={i}>
+                <img src={`https://i.pravatar.cc/40?img=${i + 1}`} alt="avatar" />
                 <div>
-                  <h6>{e.name}</h6>
-                  <p>{e.dept}</p>
+                  <h6>{a.name}</h6>
+                  <p>Exp : {a.exp} • {a.location}</p>
                 </div>
-              </div>
-              <span className={`badge ${e.tag}`}>{e.dept}</span>
-            </div>
-          ))}
+                <span className={`badge ${a.badge}`}>{a.role}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
 
-      <div className="card todo">
-        <div className="card-header">
-          <h5>Todo</h5>
-          <div>
-            <button className="today">📅 Today</button>
-            <button className="add">＋</button>
+        <div className="card employees">
+          <div className="card-header">
+            <h5>Employees</h5>
+            <button
+              className="view-all"
+              style={{
+                borderColor: "#E5E7EB",
+                position: "relative",
+                background: "#0b0b0b17",
+                // padding: "1rem 1.25rem 1rem",
+                color: "black"
+              }}
+            >
+              View All
+            </button>
+          </div>
+          <div className="employee-table">
+            <div className="table-head">
+              <span>Name</span>
+              <span>Department</span>
+            </div>
+            {employees.map((e, i) => (
+              <div className="table-row" key={i}>
+                <div className="emp-name">
+                  <img src={`https://i.pravatar.cc/40?img=${i + 2}`} alt="avatar" />
+                  <div>
+                    <h6>{e.name}</h6>
+                    <p>{e.dept}</p>
+                  </div>
+                </div>
+                <span className={`badge ${e.tag}`}>{e.dept}</span>
+              </div>
+            ))}
           </div>
         </div>
-        <ul className="todo-list">
-          {todos.map((item, i) => (
-            <li key={i}>
-              <span className="drag-icon">⋮⋮</span>
-              <input type="checkbox" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+
+        <div className="card todo">
+          <div className="card-header">
+            <h5>Todo</h5>
+            <div>
+              <button className="today"><i class="bi bi-calendar"></i> Today</button>
+              <button className="add">＋</button>
+            </div>
+          </div>
+          <ul className="todo-list">
+            {todos.map((item, i) => (
+              <li key={i}>
+                <span className="drag-icon">⋮⋮</span>
+                <input type="checkbox" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

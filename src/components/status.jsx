@@ -8,7 +8,7 @@ const DashboardStatusCards = () => {
       <div className="status-card employee-status-card">
         <div className="status-card-header">
           <h6>Employee Status</h6>
-          <button className="status-btn-small">📅 This Week</button>
+          <button className="status-btn-small"> <i class="bi bi-calendar"></i> This Week</button>
         </div>
         <h2 className="employee-count">Total Employee <span>154</span></h2>
         <div className="employee-bar-chart">
@@ -39,7 +39,7 @@ const DashboardStatusCards = () => {
       <div className="status-card attendance-overview-card">
         <div className="status-card-header">
           <h6>Attendance Overview</h6>
-          <button className="status-btn-small">📅 Today</button>
+          <button className="status-btn-small"> <i class="bi bi-calendar"></i> Today</button>
         </div>
         <div className="attendance-chart">
           {/* <svg viewBox="0 0 36 18" className="semi-circle">
@@ -76,10 +76,10 @@ const DashboardStatusCards = () => {
         <div className="status-card-header space-between">
           <h6>Clock-In/Out</h6>
           <div>
-            <select>
+            {/* <select>
               <option>All Departments</option>
-            </select>
-            <button className="status-btn-small">📅 Today</button>
+            </select> */}
+            <button className="status-btn-small"><i class="bi bi-calendar"></i> Today</button>
           </div>
         </div>
 
