@@ -103,9 +103,9 @@ const AdminDashboard = () => {
             <button className="submenu">Admin Dashboard</button>
             <button className="submenu">Employee Dashboard</button>
             {/* <button className="submenu">Deals Dashboard</button> */}
-             <button className="submenu" onClick={() => navigate("/deals")}>
-            Deals Dashboard
-          </button>
+            <button className="submenu" onClick={() => navigate("/deals")}>
+  Deals Dashboard
+</button>
             <button className="submenu">Leads Dashboard</button>
           </div>
         </aside>
@@ -201,7 +201,7 @@ const AdminDashboard = () => {
           <div className="dashboard">
             <div className="cards-container">
               {cardData.map((card, index) => (
-                <div className="card" key={index}>
+                <div className="card" key={index} >
                   <div className={`icon ${card.color}`}>
                     <i className={card.icon}></i> 
                   </div>

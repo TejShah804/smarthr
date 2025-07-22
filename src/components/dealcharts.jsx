@@ -33,11 +33,12 @@ const radarData = [
 ];
 
 const companyDeals = [
-  { name: "Pitch", date: "05 April, 2025", amount: "$3655", icon: "/img/pitch.png" },
-  { name: "Initech", date: "05 May, 2025", amount: "$2185", icon: "/img/initech.png" },
-  { name: "Umbrella Corp", date: "29 April, 2025", amount: "$1583", icon: "/img/umbrella.png" },
-  { name: "Capital Partners", date: "23 Mar, 2025", amount: "$6584", icon: "/img/capital.png" },
-  { name: "Massive Dynamic", date: "23 Feb, 2025", amount: "$2153", icon: "/img/massive.png" },
+  { name: "Pitch", date: "05 April, 2025", amount: "$3655", icon: "/img/company-24.svg" },
+  { name: "Initech", date: "05 May, 2025", amount: "$2185", icon: "/img/company-25.svg" },
+  { name: "Umbrella Corp", date: "29 April, 2025", amount: "$1583", icon: "/img/company-26.svg" },
+  { name: "Capital Partners", date: "23 Mar, 2025", amount: "$6584", icon: "/img/company-27.svg" },
+  { name: "Massive Dynamic", date: "23 Feb, 2025", amount: "$2153", icon: "/img/company-28.svg" },
+   { name: "Umbrella Corp", date: "29 April, 2025", amount: "$1583", icon: "/img/company-26.svg" },
 ];
 
 const DealsCharts = () => {

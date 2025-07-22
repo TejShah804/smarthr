@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import RecentPanels from "./recentpanel";
 
 import DealsCharts from "./dealcharts";
+import SalesDashboard from "./dealcountry";
+import DealsOverview from "./dealsoverview";
 
 
 
@@ -21,20 +23,20 @@ const DealDashboard = () => {
             <img src="/img/logo.svg" alt="" />
             
           </div> 
-          <div className="menu">
-            <button className="menu-item active">
+           <div className="menu">
+                <button className="menu-item active">
               Dashboard <span className="hot">Hot</span>
-            </button>
-            <button className="submenu" onclick={()=> navigate("/admin")}>
-              Admin Dashboard
-              </button>
-            <button className="submenu">Employee Dashboard</button>
-            {/* <button className="submenu">Deals Dashboard</button> */}
-             <button className="submenu" onClick={() => navigate("/deals")}>
-            Deals Dashboard
-          </button>
-            <button className="submenu">Leads Dashboard</button>
-          </div>
+             </button>
+  <button className="submenu" onClick={() => navigate("/admin")}>
+    Admin Dashboard
+  </button>
+  <button className="submenu">Employee Dashboard</button>
+  <button className="submenu" onClick={() => navigate("/deals")} style={{color:" #F26522;"}}>
+    Deals Dashboard
+  </button>
+  <button className="submenu">Leads Dashboard</button>
+</div>
+
         </aside>
 
         {/* Main Content */}
@@ -77,9 +79,11 @@ const DealDashboard = () => {
     <span className="current">Deal Dashboard</span>
   </div>
       </div>
-     
+        <DealsOverview/>
          <DealsCharts/>
+          <SalesDashboard/>
         <RecentPanels/>
+       
 
          
           
