@@ -88,13 +88,13 @@ const ProjectsAndTasks = () => {
               className="task-chart-img mb-3"
             /> */} <img src="/img/download (1).png" alt="Tasks " className="task-chart-img mb-3" style={{width:"70%", height:"70%"}}/>
 
-            <p className="fw-bold fs-5 mb-2">Total Tasks</p>
+            <p className="fw-bold fs-5 mb-2" style={{marginTop:"-33px"}}>Total Tasks</p>
             <h4 className="fw-bold mb-3">{completed + 24 + 10 + 16}/{total}</h4>
 
             <div className="d-flex justify-content-between w-100 px-3 mb-3 text-center flex-wrap">
               {data.map((d, i) => (
                 <div key={i} className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: d.color }}></span>
+                  <span className="legend-dot" style={{ backgroundColor: d.color }}></span> 
                   <div className="small">{d.name}</div>
                   <div className="fw-semibold">{d.value}%</div>
                 </div>

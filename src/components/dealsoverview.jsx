@@ -1,21 +1,5 @@
 import React from "react";
-import {
-  ResponsiveContainer,
-  FunnelChart,
-  Funnel,
-  LabelList,
-  Tooltip,
-} from "recharts";
-
-
-const funnelData = [
-  { stage: "Marketing", value: 7898 },
-  { stage: "Sales", value: 4658 },
-  { stage: "Email", value: 2898 },
-  { stage: "Chat", value: 789 },
-  { stage: "Operational", value: 655 },
-  { stage: "Calls", value: 454 },
-];
+import ReactApexChart from "react-apexcharts";
 
 const kpiCards = [
   {
@@ -75,11 +59,78 @@ const kpiCards = [
 ];
 
 const DealsOverview = () => {
+  const chartOptions = {
+    chart: {
+      type: 'bar',
+      height: 300,
+      dropShadow: {
+        enabled: true,
+      },
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 0,
+        horizontal: true,
+        barHeight: '80%',
+        isFunnel: true,
+        colors: {
+          ranges: [{
+            from: 0,
+            to: 10000,
+            color: 'rgba(242, 101, 34, 0.85)'
+          }]
+        }
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val, opt) {
+        return opt.w.globals.labels[opt.dataPointIndex] + ':  ' + val
+      },
+      dropShadow: {
+        enabled: true,
+      },
+    },
+    title: {
+      text: 'Deals Funnel',
+      align: 'middle',
+    },
+    xaxis: {
+      categories: [
+        'Initial Contact',
+        'Qualified Lead',
+        'Needs Analysis',
+        'Proposal',
+        'Negotiation',
+        'Final Review',
+        'Closed Won',
+       
+      ],
+    },
+    legend: {
+      show: false,
+    },
+    fill: {
+      colors: ['rgba(242, 101, 34, 0.85)']
+    }
+  };
+
+  const chartSeries = [{
+    name: "Deals Count",
+    data: [1380, 1100, 990, 880, 740, 548, 330],
+    color: 'rgba(242, 101, 34, 0.85)'
+  }];
+
   return (
-    <div className="deals-overview" style={{display:'flex'}}>
-      <div className="cards">
+    <div className="deals-overview">
+      <div className="cards" style={{flex:'1 1 200px', gap: '20px', marginBottom: '20px'}}>
         {kpiCards.map((card, i) => (
-          <div className="card" key={i}>
+          <div className="card" key={i} style={{ 
+            background: "linear-gradient(115.43deg, #FFFFFF 0.45%, #FFF3ED 100%)",
+            padding: '15px',
+            borderRadius: '8px',
+            flex: '1 1 200px'
+          }}>
             <div className={`icon ${card.color}`}>
               <i className={`bi ${card.icon}`}></i>
             </div>
@@ -93,26 +144,54 @@ const DealsOverview = () => {
         ))}
       </div>
 
-      <div className="funnel-chart-card">
-        <div className="header-row">
-          <h4>Pipeline Stages</h4>
-          <button>This Week</button>
-        </div>
-        <ResponsiveContainer width="100%" height={300}>
-          <FunnelChart>
-            <Tooltip />
-            <Funnel dataKey="value" data={funnelData} isAnimationActive>
-              <LabelList dataKey="stage" position="right" fill="#fff" />
-            </Funnel>
-          </FunnelChart>
-        </ResponsiveContainer>
+      <div style={{display: 'flex', gap: '20px'}}>
+        <div className="side-panels" style={{flex: 1}}>
+          <div className="card" style={{padding: '20px', borderRadius: '8px', marginBottom: '20px'}}>
+            <div className="card-header" style={{marginBottom:"10px", display: 'flex', justifyContent: 'space-between'}}>
+              <h3>Deals Funnel</h3>
+              <button className="date-btn" style={{padding: '5px 10px', border: '1px solid #ddd', borderRadius: '4px'}}>This Week</button>
+            </div>
+            <ReactApexChart 
+              options={chartOptions} 
+              series={chartSeries} 
+              type="bar" 
+              height={300} 
+            />
+            <div className="card" style={{border:'none'}}>
+            <div className="card-header" style={{backgroundColor:"white", marginBottom: '15px'}}>
+              <h3>Leads Values By Stages</h3>
+            </div>
+            <div className="leads-values">
+              {[
+                { label: "Marketing", value: "$5,221,45", level: 0 },
+                { label: "Sales", value: "$30,424", level: 1 },
+                { label: "Email", value: "$21,135", level: 2 },
+                { label: "Chat", value: "$15,235", level: 3 },
+                { label: "Operational", value: "$10,557", level: 4 }
+              ].map((lead, idx) => (
+                <div className="lead-item" key={idx} style={{ 
+                  background: "white",
+                  padding: '10px',
+                  marginBottom: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  border:' 1px solid #ddd',
+                }}>
+                  <div className={`dot dot-level-${lead.level}`} style={{
+                    width: '10px',
+                    height: '10px',
+                    background: `hsl(${200 - (lead.level * 30)}, 70%, 50%)`
+                  }}></div>
+                  <span style={{flex: 1}}>{lead.label}</span>
+                  <span className="lead-value" style={{fontWeight: 'bold'}}>{lead.value}</span>
+                </div>         
+              ))}
+            </div>
+          </div>
+          </div>
 
-        <div className="leads-values">
-          <div><span className="dot marketing" /> Marketing: <strong>$5,221,45</strong></div>
-          <div><span className="dot sales" /> Sales: <strong>$30,424</strong></div>
-          <div><span className="dot email" /> Email: <strong>$21,135</strong></div>
-          <div><span className="dot chat" /> Chat: <strong>$15,235</strong></div>
-          <div><span className="dot operational" /> Operational: <strong>$10,557</strong></div>
+          
         </div>
       </div>
     </div>

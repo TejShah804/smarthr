@@ -131,7 +131,11 @@ const DashboardDealsSection = () => {
     <div className="dashboard-deals-section">
       {/* Deals by Country */}
       <div className="panel country-panel">
-        <div className="panel-header">
+        <div className="panel-header"style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}>
           <h4 style={{ fontSize: "medium" }}>Deals By Country</h4>
           <button className="view-btn">View All</button>
         </div>
@@ -162,9 +166,13 @@ const DashboardDealsSection = () => {
 
       {/* Won Deals Stage */}
       <div className="panel chart-panel">
-        <div className="panel-header">
+        <div className="panel-header" style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}>
           <h4 style={{ fontSize: "medium" }}>Won Deals Stage</h4>
-          <span className="dropdown">Sales Pipeline ▼</span>
+          <span className="dropdown" >Sales Pipeline ▼</span>
         </div>
         <div className="centered-chart">
           <h3 style={{ fontSize: "medium" }}>Stages Won This Year</h3>
@@ -196,7 +204,11 @@ const DashboardDealsSection = () => {
 
       {/* Recent Follow Up */}
       <div className="panel followup-panel">
-        <div className="panel-header">
+        <div className="panel-header" style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}>
           <h4 style={{ fontSize: "medium" }}>Recent Follow Up</h4>
           <button className="view-btn">View All</button>
         </div>

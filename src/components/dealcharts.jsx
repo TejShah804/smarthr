@@ -46,7 +46,11 @@ const DealsCharts = () => {
     <div className="deals-charts-wrapper">
       {/* Deals by Stage */}
       <div className="chart-card">
-        <div className="chart-header">
+        <div className="chart-header"  style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}>
           <h4>Deals by Stage</h4>
           <button>This Week</button>
         </div>
@@ -67,7 +71,14 @@ const DealsCharts = () => {
 
       {/* Deals by Companies */}
       <div className="chart-card">
-        <div className="chart-header">
+    <div
+      className="chart-header"
+      style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}
+    >
           <h4>Deals By Companies</h4>
           <button>This Week</button>
         </div>
@@ -87,7 +98,11 @@ const DealsCharts = () => {
 
       {/* Top Deals */}
       <div className="chart-card">
-        <div className="chart-header">
+        <div className="chart-header" style={{
+        borderBottom: "1px solid #E5E7EB",
+        paddingBottom: "5px",
+        marginBottom: "12px"
+      }}>
           <h4>Top Deals</h4>
           <button>This Week</button>
         </div>

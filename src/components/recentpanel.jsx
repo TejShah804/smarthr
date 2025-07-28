@@ -46,22 +46,22 @@ const deals = [
 
 const activities = [
   {
-    icon: "",
+    icon: "📞",
     desc: "Drain responded to your appointment schedule question.",
     time: "09:25 PM",
   },
   {
-    icon: "",
+    icon: "💬",
     desc: "You sent 1 Message to the James.",
     time: "10:25 PM",
   },
   {
-    icon: "",
+    icon: "💬",
     desc: "Denwar responded to your appointment on 25 Jan 2025, 08:15 PM",
     time: "09:25 PM",
   },
   {
-    icon: "",
+    icon: "📞",
     desc: "Meeting With Abraham",
     time: "09:25 PM",
     // avatar: "https://i.pravatar.cc/30?img=16",
@@ -106,7 +106,7 @@ const RecentPanels = () => {
 
       {/* Activities Timeline */}
       <div className="activities-panel">
-        <div className="panel-header">
+        <div className="panel-header" >
           <h4>Recent Activities</h4>
           <button>View All</button>
         </div>
